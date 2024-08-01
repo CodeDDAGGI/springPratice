@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.toyproject.todolist.repository.TodoListMapper" >
+    <insert id="save" parameterType="com.toyproject.todolist.entity.Todo">
+        insert into todolist_tb
+        values
+        (0,  #{todoTxt} , #{todoDate} )
+    </insert>
+    <update id="Modify" parameterType="integer">
+        update
+            todolist_tb
+        set
+            todoTxt = #{todoTxt} , todoDate = #{todoDate}
+        where
+            todolistId = #{todolistId}
+    </update>
+    <update id="Complete" parameterType="integer">
+        update
+            todolist_tb
+        set
+            todocomplete = 1
+        where
+            todolistId = #{todolistId}
+    </update>
+    <update id="NotComplete" parameterType="integer">
+        update
+            todolist_tb
+        set
+            todocomplete = 0
+        where
+            todolistId = #{todolistId}
+    </update>
+
+    <delete id="delete" parameterType="integer">
+        delete
+        from
+            todolist_tb
+        where
+            todolistId =#{id}
+    </delete>
+    <select id="findTodoList"
+        parameterType="com.toyproject.todolist.entity.Todo"
+        resultType="com.toyproject.todolist.entity.Todo">
+
+        select
+            todolistId,
+            todoTxt,
+            todoDate
+        form
+            todolist_tb
+    </select>
+
+</mapper>
