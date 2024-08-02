@@ -26,10 +26,14 @@ public class TodoController {
     }
 
     @GetMapping("/todo/{date}")
-    public ResponseEntity<?> getTodolist(@PathVariable String date){
+    public ResponseEntity<?> getTodolistByDate(@PathVariable String date){
         log.info("{}", date);
         return ResponseEntity.ok().body(todoService.allList(date));
     }
 
+    @GetMapping("/todo")
+    public ResponseEntity<?> getTodolist(){
+        return ResponseEntity.ok().body(todoService.allList());
+    }
 
 }

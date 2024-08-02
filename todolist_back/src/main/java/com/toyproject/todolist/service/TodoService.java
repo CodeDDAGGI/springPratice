@@ -2,6 +2,7 @@ package com.toyproject.todolist.service;
 
 import com.toyproject.todolist.dto.ReqTodosDto;
 import com.toyproject.todolist.dto.RespTodosDto;
+import com.toyproject.todolist.entity.Todos;
 
 import java.util.List;
 
@@ -9,6 +10,6 @@ import java.util.List;
 public interface TodoService {
     // 저장할때 리턴값은 인트
     int save(ReqTodosDto DTO);
-    List<RespTodosDto> allList(String date);
-
+    List<Todos> allListByDate(String date);
+    List<Todos> allList();
 }

@@ -15,5 +15,5 @@ public interface TodoMapper {
     // 컨트롤러의 매개변수를 게속 건네줌
     List<Todos> todolist(String date);
     // xml갓다옴
-    List<RespTodosDto> alltodoList();
+    List<Todos> alltodoList();
 }

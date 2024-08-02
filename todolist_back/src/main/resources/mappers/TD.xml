@@ -7,8 +7,8 @@
 
 
     <insert id="save" parameterType="com.toyproject.todolist.entity.Todos" >
-        INSERT INTO todolist (content, date, status)
-        VALUES (#{content}, #{date}, 0);
+        INSERT INTO todolist_tb
+        VALUES (0, #{content}, #{date}, 0);
     </insert>
 
     <select id="todolist" resultType="com.toyproject.todolist.entity.Todos">
@@ -20,7 +20,7 @@
             date = #{date}
     </select>
 
-    <select id="getAllTodos" resultType="com.toyproject.todolist.entity.Todos">
+    <select id="alltodoList" resultType="com.toyproject.todolist.dto.RespTodosDto">
         SELECT * FROM todolist
     </select>
 </mapper>
